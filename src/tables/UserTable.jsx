@@ -1,16 +1,14 @@
-const UserTable = ({setCrudData, crudData, setFEdit, setFAdd}) => {
+const UserTable = ({setCrudData, crudData, setFAdd}) => {
 
     const fEditTrue = (data) => {
         document.getElementById("name").value = data.name;
         document.getElementById("username").value = data.username;
         document.getElementById("id").value = data.id;
         setFAdd(false);
-        setFEdit(true);
     }
 
     const deleteData = (id) => {
         document.querySelector("form").reset();
-        setFEdit(false);
         setFAdd(true);
         setCrudData(crudData.filter(data => data.id !== id));
     }

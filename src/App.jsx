@@ -5,7 +5,6 @@ import UserForm from "./forms/UserForm.jsx";
 function App() {
 
     const [fAdd, setFAdd] = useState(true);
-    const [fEdit, setFEdit] = useState(false);
     const [crudData, setCrudData] = useState([
         {
             id: 1,
@@ -19,8 +18,6 @@ function App() {
         }
     ]);
 
-    console.log("Test", fEdit);
-
   return (
       <>
           <div className="container mx-auto px-32">
@@ -31,11 +28,11 @@ function App() {
                           fAdd ? <h2 className="text-4xl font-bold">Add user</h2>
                               : <h2 className="text-4xl font-bold">Edit user</h2>
                       }
-                      <UserForm crudData={crudData} setCrudData={setCrudData} fAdd={fAdd} setFAdd={setFAdd} fEdit={fEdit} setFEdit={setFEdit}/>
+                      <UserForm crudData={crudData} setCrudData={setCrudData} fAdd={fAdd} setFAdd={setFAdd}/>
                   </div>
                   <div>
                       <h2 className="text-4xl font-bold">View users</h2>
-                      <UserTable setCrudData={setCrudData} crudData={crudData} setFEdit={setFEdit} setFAdd={setFAdd}/>
+                      <UserTable setCrudData={setCrudData} crudData={crudData} setFAdd={setFAdd}/>
                   </div>
               </div>
           </div>

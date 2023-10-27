@@ -1,20 +1,22 @@
+import {useState} from "react";
 
+const UserForm = ({crudData, setCrudData, fAdd, setFAdd}) => {
 
-const UserForm = ({crudData, setCrudData, fAdd, setFAdd, fEdit, setFEdit}) => {
+    const [idNew, setIdNew] = useState(crudData[crudData.length-1].id);
 
     const fAddTrue = () => {
         document.querySelector("form").reset();
-        setFEdit(false);
         setFAdd(true);
     };
 
     const handleSubmitAdd = (event) => {
         event.preventDefault();
         if(event.target.name.value !== "" && event.target.username.value !== "") {
-            const id = crudData.length + 1;
+            const id = idNew + 1;
             const name = event.target.name.value;
             const username = event.target.username.value;
             document.querySelector("form").reset();
+            setIdNew(id);
             setCrudData([...crudData,
                 {
                     id: id,
